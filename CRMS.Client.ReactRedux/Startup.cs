@@ -23,6 +23,8 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -328,9 +330,10 @@ namespace CRMS.Client.ReactRedux
                     }
                     else // If No Migrations Create Databse without using Migrations
                     {
-                        await context.Database.EnsureCreatedAsync();
-                        await identityContext.Database.EnsureCreatedAsync();
-                        await CreateRolesAndAdmin(serviceScope);  // Create Roles And Admin User
+                        await context.Database.EnsureCreatedAsync(); // Create DB
+                        RelationalDatabaseCreator databaseCreator = (RelationalDatabaseCreator)identityContext.Database.GetService<IDatabaseCreator>();
+                        await databaseCreator.CreateTablesAsync(); // Create IdentityContext Tables
+                        await CreateRolesAndAdmin(serviceScope); // Add Roles and Admin User
                     }
                 }
             }
