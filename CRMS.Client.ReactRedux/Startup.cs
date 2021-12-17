@@ -311,37 +311,64 @@ namespace CRMS.Client.ReactRedux
             // Ensure DB Created  & Create Admin
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                //// Ensrue Db Created
-                //var context = serviceScope.ServiceProvider.GetRequiredService<ItlCrmsDbContext>();
-                //await context.Database.MigrateAsync();
-
-                //var identityContext = serviceScope.ServiceProvider.GetRequiredService<IdentityContext>();
-                //await identityContext.Database.MigrateAsync();
-
-                // Create Admin
-                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-                var user = new ApplicationUser(); // Create the User
-                user.SetUserData("ITL", "CRMS", "a@a.dk", null, null, "123456");
-                await userManager.CreateAsync(user);
-          
-
-                // Create Roles
-                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                // Admin
-                var adminRole = new IdentityRole { Name = "admin" };  
-                await roleManager.CreateAsync(adminRole);
-                //User
-                var userRole = new IdentityRole { Name = "user" };  
-                await roleManager.CreateAsync(userRole);
-                // Guest
-                var guestRole = new IdentityRole { Name = "guest" };
-                await roleManager.CreateAsync(guestRole);
-
-
-                // Add Admin User to Admin ROle
-                await userManager.AddToRoleAsync(user, "admin");
+                    // Contexts
+                    var context = serviceScope.ServiceProvider.GetRequiredService<ItlCrmsDbContext>();
+                    var identityContext = serviceScope.ServiceProvider.GetRequiredService<IdentityContext>();
+                 
+                // Check if DB Exists
+                if(await context.Database.CanConnectAsync() == false) 
+                {
+                    // If Migrations Exists
+                    if (await context.Database.GetPendingMigrationsAsync() != null && identityContext.Database.GetPendingMigrationsAsync() != null) 
+                    {
+                       // Ensrue Db Created from Migrations
+                       await context.Database.MigrateAsync();
+                       await identityContext.Database.MigrateAsync();
+                       await CreateRolesAndAdmin(serviceScope); // Create Roles And Admin User
+                    }
+                    else // If No Migrations Create Databse without using Migrations
+                    {
+                        await context.Database.EnsureCreatedAsync();
+                        await identityContext.Database.EnsureCreatedAsync();
+                        await CreateRolesAndAdmin(serviceScope);  // Create Roles And Admin User
+                    }
+                }
             }
         }
+           
+
+        private static async Task CreateRolesAndAdmin(IServiceScope serviceScope)
+        {
+            // Create Admin
+            var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            var user = new ApplicationUser(); // Create the User
+            user.SetUserData("ITL", "CRMS", "a@a.dk", null, null, "123456");
+            await userManager.CreateAsync(user);
+
+
+            // Create Roles
+            var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            // Admin
+            var adminRole = new IdentityRole { Name = "admin" };
+            await roleManager.CreateAsync(adminRole);
+            //User
+            var userRole = new IdentityRole { Name = "user" };
+            await roleManager.CreateAsync(userRole);
+            // Guest
+            var guestRole = new IdentityRole { Name = "guest" };
+            await roleManager.CreateAsync(guestRole);
+
+
+            // Add Admin User to Admin ROle
+            await userManager.AddToRoleAsync(user, "admin");
+        }
+
+
     }
 }
+
+
+
+// For Custome Auth Middle ware
+//https://stackoverflow.com/questions/31464359/how-do-you-create-a-custom-authorizeattribute-in-asp-net-core

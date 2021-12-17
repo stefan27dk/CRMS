@@ -29,7 +29,7 @@ class NavMenu extends Component {
         const { userState } = this.props;
         let adminRole = undefined;
 
-        if (userState.roles !== undefined) {
+        if (userState.roles !== undefined && userState.roles !== "") {
             adminRole = userState.roles.find(r => r == 'admin');
         }
 
