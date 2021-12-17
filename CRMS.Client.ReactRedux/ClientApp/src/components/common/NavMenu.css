@@ -1,0 +1,87 @@
+﻿a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+
+
+
+.navbar-itl-bg {
+    background: rgb(0,126,255);
+    background: linear-gradient(0deg, rgba(0,116,245,0) 0%, rgba(9,210,235,1) 0%, rgba(0,208,208,1) 50%, rgba(10,172,190,1) 95%);
+    height: 100px;
+    padding: 2px;
+}
+
+
+.nav-toggler-itl {
+    background-color: red;
+}
+
+
+
+
+
+.itl-nav-item-text {
+    color: white !important;
+    font-weight: bold;
+    font-size: min(max(10px, 2vw),20px);
+    border-radius: 2px;
+    margin-right: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+    .itl-nav-item-text:hover {
+        background: rgb(78,78,81);
+        background: radial-gradient(circle, rgba(78,78,81,1) 0%, rgba(88,89,90,1) 100%);
+    }
+
+
+
+
+.economic-logo {
+    width: 150px;
+    height: auto;
+}
+
+
+
+
+.fixed-mini-menu {
+    float: right;
+    margin-right: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-align: right;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+    .fixed-mini-menu span {
+        cursor: pointer;
+        margin-top: 10px;
+        display: block;
+    }
+
+        .fixed-mini-menu span:hover {
+            filter: drop-shadow(0px 4px 4px rgb(52, 168, 235));
+        }

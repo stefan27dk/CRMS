@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D350BE9B-50EC-4735-B69B-75900CB9F5BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{C85D65CC-EF0A-4772-95D5-82BD09967690}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRMS.Client.ReactRedux", "CRMS.Client.ReactRedux\CRMS.Client.ReactRedux.csproj", "{78D72008-EFFA-4365-B056-380BBEC2D7AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mix", "Mix", "{FAC00177-CBFB-4524-A6F2-0BBCA3FEC013}"
+	ProjectSection(SolutionItems) = preProject
+		send_draft.js = send_draft.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78D72008-EFFA-4365-B056-380BBEC2D7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D72008-EFFA-4365-B056-380BBEC2D7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D72008-EFFA-4365-B056-380BBEC2D7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D72008-EFFA-4365-B056-380BBEC2D7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C85D65CC-EF0A-4772-95D5-82BD09967690} = {D350BE9B-50EC-4735-B69B-75900CB9F5BA}
+		{78D72008-EFFA-4365-B056-380BBEC2D7AF} = {C85D65CC-EF0A-4772-95D5-82BD09967690}
+		{FAC00177-CBFB-4524-A6F2-0BBCA3FEC013} = {C85D65CC-EF0A-4772-95D5-82BD09967690}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0DE1A91-5429-400F-A3C0-E280F9A52933}
+	EndGlobalSection
+EndGlobal
