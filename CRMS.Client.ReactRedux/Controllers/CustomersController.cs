@@ -95,6 +95,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Add - Customer ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("AddCustomer")]
         public async Task<IActionResult> AddCustomer(JsonElement customer)
@@ -113,6 +114,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Update - Customer ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPut]
         [Route("UpdateCustomer")]
         public async Task<IActionResult> UpdateCustomer(JsonElement customer, int customerId)
@@ -160,6 +162,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Delete - Customer Contact Person ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpDelete("DeleteContactPerson")]
         public async Task<IActionResult> DeleteContactPerson(int customerId, int contactId)  
         {
@@ -182,6 +185,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Update - Customer Contact Person ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPut("UpdateContactPerson")]
         public async Task<IActionResult> UpdateContactPerson([FromBody] JsonElement jsonContact, int customerId, int contactId)
         {
@@ -209,6 +213,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Create - Customer Contact Person ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPost("CreateContactPerson")]
         public async Task<IActionResult> CreateContactPerson([FromBody] JsonElement jsonContact, int customerId)
         {     
@@ -230,6 +235,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Delete - Customer ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpDelete("DeleteCustomer")]
         public async Task<IActionResult> DeleteCustomer(int customerId)
         {
@@ -260,6 +266,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // ===== Set CVR API Address =====================================================================
+        [Authorize(Roles = "user, admin")]
         [HttpPut]
         [Route("SetCvrApiAddress")]
         public async Task<IActionResult> SetCvrApiAddress(string cvrApiAddress)
@@ -507,6 +514,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
         // Get Target -----------------------------------------------------------------------------------------------------------------------------------------
         // Get by URL
+        [Authorize(Roles = "user, admin")]
         [HttpGet]
         [Route("GetTarget")]
         public async Task<IEnumerable> GetTarget(string target)

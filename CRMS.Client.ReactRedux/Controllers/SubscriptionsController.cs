@@ -1,6 +1,7 @@
 ﻿using CRMS.Client.ReactRedux.DB;
 using CRMS.Client.ReactRedux.Models;
-using CRMS.Client.ReactRedux.Services.SubscriptionsServices;   
+using CRMS.Client.ReactRedux.Services.SubscriptionsServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // ADD Subscription ---------------------------------------------------------------------------------------------------------------------------- 
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("AddSubscription")]
         public async Task<IActionResult> AddSubscription(SubscriptionsModel newSubscription)
@@ -104,6 +106,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Delete ById ----------------------------------------------------------------------------------------------------------------------------- 
+        [Authorize(Roles = "user, admin")]
         [HttpDelete]
         [Route("DeleteSubscriptionByID")]
         public async Task<IActionResult> DeleteSubscriptionByID(int subscriptionId)
@@ -150,6 +153,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Update - Subscriptions Range ---------------------------------------------------------------------------------------------------------------------------- 
+        [Authorize(Roles = "user, admin")]
         [HttpPut]
         [Route("SubscriptionsUpdateRange")]
         public async Task<IActionResult> SubscriptionsUpdateRange(List<SubscriptionsModel> subscriptionsForUpdate)
@@ -172,6 +176,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Update - Subscription ---------------------------------------------------------------------------------------------------------------------------- 
+        [Authorize(Roles = "user, admin")]
         [HttpPut]
         [Route("UpdateSubscription")]
         public async Task<IActionResult> UpdateSubscription(SubscriptionsModel subscription)
@@ -207,7 +212,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // GetGroupedSubscriptionsByCustomer - Subscription ---------------------------------------------------------------------------------------------------------------------------- 
-        [HttpPut]
+        [HttpGet]
         [Route("GetGroupedSubscriptionsByCustomer")]
         public async Task<IEnumerable> GetGroupedSubscriptionsByCustomer()
         {
@@ -224,6 +229,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Make Subscription active---------------------------------------------------------------------------------------------------------------------------- 
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("ActivateSubscription")]
         public async Task<IActionResult> ActivateSubscription(int subscriptionId)

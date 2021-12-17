@@ -272,13 +272,7 @@ namespace CRMS.Client.ReactRedux
                 });
             });
 
-
-
-
-
-          
-
-
+             
 
 
             //// Use Spa

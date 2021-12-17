@@ -100,7 +100,7 @@ export const deleteSubscription = (subscriptionId) => dispatch => {
                     payload:
                     {
                         messageType: 'error',
-                        messageContent: "Fejl: Abonnement med ID:${subscriptionId} kunne ikke slettes!",
+                        messageContent: `Fejl: Abonnement med ID:${subscriptionId} kunne ikke slettes!`,
                         time: moment().add(3, 'seconds').valueOf()
                     }
                 });

@@ -49,6 +49,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Invoice - CreateDrafts ----------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("CreateInvoiceDraftsFromJson")]
         public async Task<IActionResult> CreateInvoiceDraftsFromJsonAsync([FromBody] JsonElement jsonDrafts)
@@ -69,6 +70,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Delete- Invoices Draft ----------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpDelete]
         [Route("DeleteInvoiceDraft")]
         public async Task<IActionResult> DeleteInvoiceDraftAsync(int draftId)
@@ -166,6 +168,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Send All Invoices ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("SendAllInvoices")]
         public async Task<IActionResult> SendAllInvoices()

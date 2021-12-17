@@ -2,6 +2,7 @@
 using CRMS.Client.ReactRedux.Models;
 using CRMS.Client.ReactRedux.Overloads;
 using CRMS.Client.ReactRedux.Services.DomainsServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
@@ -75,6 +76,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Add - Customer Domain------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("AddDomain")]
         public async Task<IActionResult> AddDomain(CustomersDomainsModel domain)
@@ -95,7 +97,7 @@ namespace CRMS.Client.ReactRedux.Controllers
                 return StatusCode(409, $"Server Fejl - Domæne: {domain.DomainName} blev ikke oprettet!");
            }
                 return StatusCode(409, "Invalid Input!");
-        }  
+        }
 
 
 
@@ -144,7 +146,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
 
-
+        [Authorize(Roles = "user, admin")]
         [HttpPut]
         [Route("UpdateDomain")]
         public async Task<IActionResult> UpdateDomain(CustomersDomainsModel domain)
@@ -211,6 +213,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Delete - Customer Domain by Name ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpDelete]
         [Route("DeleteDomainByName")]
         public async Task<IActionResult> DeleteDomainByName(string domainName)

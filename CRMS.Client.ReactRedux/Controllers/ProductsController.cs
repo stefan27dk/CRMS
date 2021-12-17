@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text.Json;
 using CRMS.Client.ReactRedux.Overloads;
 using CRMS.Client.ReactRedux.Services.ProductsServices;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CRMS.Client.ReactRedux.Controllers
 {
@@ -67,6 +68,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Add - Product ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPost]
         [Route("AddProduct")]
         public async Task<IActionResult> AddProduct([FromBody] JsonElement jsonProduct)
@@ -85,6 +87,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Update - Product ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpPut("UpdateProduct")]
         public async Task<IActionResult> UpdateProduct([FromBody] JsonElement jsonProduct, string productId)
         {
@@ -102,6 +105,7 @@ namespace CRMS.Client.ReactRedux.Controllers
 
 
         // Delete - Product ------------------------------------------------------------------------------------------------------------------------------------------
+        [Authorize(Roles = "user, admin")]
         [HttpDelete("DeleteProduct")]
         public async Task<IActionResult> DeleteProduct(string productId)
         {
