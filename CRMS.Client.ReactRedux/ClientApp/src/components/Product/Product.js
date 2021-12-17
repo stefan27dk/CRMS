@@ -96,7 +96,7 @@ class Product extends Component {
                         {/*Unit, GroupNumber, Active*/}
                         <div className="p-2 inline-block">
                             <div className="m-0 no-wrap"><p className="mr-2 bo-500 no-wrap"><FontAwesomeIcon className="fa-lg mr-2" icon={faStream} />ENHED:</p><p className="no-wrap m-0">{product.unit !== undefined && product.unit !== null ? product.unit.name : '-'}</p></div>
-                            <div className="m-0 no-wrap"><p className="mr-2 bo-500 no-wrap"><FontAwesomeIcon className="fa-lg mr-2" icon={faTimes} />TILSTAND:</p><p className="no-wrap m-0">{product.barred === true ? 'Aktiv' : 'Inaktiv'}</p></div>
+                            <div className="m-0 no-wrap"><p className="mr-2 bo-500 no-wrap"><FontAwesomeIcon className="fa-lg mr-2" icon={faTimes} />TILSTAND:</p><p className="no-wrap m-0">{product.barred === true ? 'Inaktiv' : 'Aktiv'}</p></div>
                             <div className="m-0 no-wrap"><p className="mr-2 bo-500 no-wrap"><FontAwesomeIcon className="fa-lg mr-2" icon={faLayerGroup} />PRODUKT GRUPPE:</p><p className="no-wrap m-0">{product.productGroup.productGroupNumber + ': ' + product.productGroup.name}</p></div>
                         </div>
 

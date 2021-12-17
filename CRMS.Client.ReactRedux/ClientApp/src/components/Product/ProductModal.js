@@ -50,15 +50,23 @@ class ProductModal extends Component {
             product = { ...currentModalProduct, ["unit"]: { unitNumber: tryConvertToInt(e.target.value) } }
         }
         // Barred
-        else if (e.currentTarget.name === 'barred' && modalTitle == "Rediger Produkt" && e.currentTarget.checked == true) {
-            let productSub = subscriptions.find(s => s.productId == currentProduct.productNumber);
-            if (productSub == undefined) {
-                product = { ...currentModalProduct, barred: e.currentTarget.checked }
+        else if (e.currentTarget.name === 'barred')
+        {
+            if (e.currentTarget.checked == true) {
+                let productSub = subscriptions.find(s => s.productId == currentProduct.productNumber);
+                if (productSub == undefined) {
+                    product = { ...currentModalProduct, barred: e.currentTarget.checked }
+                }
+                else {
+                    e.currentTarget.checked = false;
+                    this.timeOutinactiveErrorMessage();
+                    return;
+                }
             }
-            else {
-                e.currentTarget.checked = false;
-                this.timeOutinactiveErrorMessage();
-                return;
+            else
+            {
+                product = { ...currentModalProduct, barred: false}
+
             }
         }
         else {
@@ -154,10 +162,10 @@ class ProductModal extends Component {
 
 
 
-                                {/*State -------------*/}
+                                {/*Barred -------------*/}
                                 <div className="mr-4 my-3">
                                     <p className="h6 title display-rows ml-3"><FontAwesomeIcon className="fa-lg mr-2" icon={faTimes} />Inaktiv:</p>
-                                    <input name="barred" className="ml-2 form-control" defaultChecked={currentModalProduct.barred} onChange={this.handleChangeProduct} maxLength="10" type="checkbox" />
+                                    <input name="barred" className="ml-2 form-control" defaultChecked={currentModalProduct.barred} onClick={this.handleChangeProduct} maxLength="10" type="checkbox" />
                                 </div>
 
 
