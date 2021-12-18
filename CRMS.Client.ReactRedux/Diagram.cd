@@ -1,4 +1,713 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CRMS.Client.ReactRedux.Controllers.IdentityControllers.AccountController">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBAAAABAAACAAAAIgAAAAAAIQAAABAAAAACAAAAAAA=</HashCode>
+      <FileName>Controllers\IdentityControllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="signInManager" />
+      <Field Name="userManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.IdentityControllers.AdministratorController">
+    <Position X="23.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cIBCEgABBIAAAAAkAAAAQwAQIgIAAAAEGAEQABEUQYA=</HashCode>
+      <FileName>Controllers\IdentityControllers\AdministratorController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_appsettingsConfigurationService" />
+      <Field Name="_configuration" />
+      <Field Name="_emailService" />
+      <Field Name="_identityDBContext" />
+      <Field Name="_itlCrmsDbContext" />
+      <Field Name="appLifetime" />
+      <Field Name="roleManager" />
+      <Field Name="userManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.CustomersController">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oABAAAAAAQAAAQACBAAAYQAAACAAAAAAIAAEAAASAAA=</HashCode>
+      <FileName>Controllers\CustomersController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_appsettingsConfigurationService" />
+      <Field Name="_customersService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.DomainsController">
+    <Position X="41" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIACQAAIAAAAAAAAAAAAABAAAAAGAAAA=</HashCode>
+      <FileName>Controllers\DomainsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_domainsService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.InvoicesController">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <AssociationLine Name="_emailService" Type="CRMS.Client.ReactRedux.Services.EmailServices.IEmailService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.344" Y="8.156" />
+        <Point X="1.344" Y="11.778" />
+        <Point X="1.667" Y="11.778" Type="JumpStart" />
+        <Point X="1.833" Y="11.778" Type="JumpEnd" />
+        <Point X="3.932" Y="11.778" Type="JumpStart" />
+        <Point X="4.099" Y="11.778" Type="JumpEnd" />
+        <Point X="6.417" Y="11.778" Type="JumpStart" />
+        <Point X="6.583" Y="11.778" Type="JumpEnd" />
+        <Point X="8.5" Y="11.778" />
+        <Point X="8.5" Y="13.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_invoicesServices" Type="CRMS.Client.ReactRedux.Services.InvoicesServices.IInvoicesServices" ManuallyRouted="true">
+      <Path>
+        <Point X="1.75" Y="8.156" />
+        <Point X="1.75" Y="13.667" />
+        <Point X="4.75" Y="13.667" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_userManager" Type="Microsoft.AspNetCore.Identity.UserManager&lt;TUser&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.25" Y="5" />
+        <Point X="1.25" Y="4.247" />
+        <Point X="3.932" Y="4.247" Type="JumpStart" />
+        <Point X="4.099" Y="4.247" Type="JumpEnd" />
+        <Point X="4.344" Y="4.247" />
+        <Point X="4.344" Y="2.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BAIABAICBAAAEACAAAAAAQAQAQCAAACAAAAAAQAAIAA=</HashCode>
+      <FileName>Controllers\InvoicesController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_appsettingsConfigurationService" />
+      <Field Name="_emailService" />
+      <Field Name="_invoicesServices" />
+      <Field Name="_subscriptionsService" />
+      <Field Name="_userManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.NotificationMailsController">
+    <Position X="15.75" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAgAgAAAAAAAIgAAAAAAAAAAAAAAAIAAAAAAAIAA=</HashCode>
+      <FileName>Controllers\NotificationMailsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_notificationMailsService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.ProductsController">
+    <Position X="14.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAYAAAAIAAAQAiAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Controllers\ProductsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_productsService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Controllers.SubscriptionsController">
+    <Position X="10.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAQIEQBCAEAAAAAAAAAAAIAAAAAAAAAAABAAAEAA=</HashCode>
+      <FileName>Controllers\SubscriptionsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_subscriptionsService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.DB.IdentityContext">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DB\IdentityContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.DB.ItlCrmsDbContext" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAUAAAAAAAAAAEAAAAAACAAQEAAAAAAA=</HashCode>
+      <FileName>DB\ItlCrmsDbContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Filter.UnitOfWorkFilter" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAQQAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filter\UnitOfWorkFilter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dbContext" />
+      <Field Name="_transaction" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Frame.EmailService.EmailServiceConfig" BaseTypeListCollapsed="true">
+    <Position X="30" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAIAAQAAAAAACACAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Frame\EmailService\EmailServiceConfig.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.MiddleWares.HttpContextAccessorMiddleware">
+    <Position X="19.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEABAAAAAA=</HashCode>
+      <FileName>MiddleWares\HttpContextAccessorMiddleware.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_configuration" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.IdentityMigrations.InitialIdentityMigration">
+    <Position X="34" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\IdentityMigrations\20211019104602_InitialIdentityMigration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.IdentityMigrations.IdentityContextModelSnapshot">
+    <Position X="47.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\IdentityMigrations\IdentityContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.initial1" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20210924112128_initial1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.AddingMail">
+    <Position X="27.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20211115122553_AddingMail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.NotificationMailEdit">
+    <Position X="45.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20211116080042_NotificationMailEdit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.invoicelog">
+    <Position X="38.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20211201135754_invoicelog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Migrations.ItlCrmsDbContextModelSnapshot">
+    <Position X="36.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\ItlCrmsDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Common.PaymentTerms">
+    <Position X="34" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAEAAAIAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Common\PaymentTerms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Common.Recipient">
+    <Position X="34" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAACAAAAAIEAAAAAAAAAAgAAAg=</HashCode>
+      <FileName>Models\Common\Recipient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Common.Unit">
+    <Position X="27.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Common\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Common.VatZone">
+    <Position X="36.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAEAAACAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Common\VatZone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Dtos.InvoicePostDto">
+    <Position X="45.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAFAAAAAAAAAIAIAAAAAAIAAAAAEABACQgAIAA=</HashCode>
+      <FileName>Models\Dtos\InvoicePostDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Dtos.RecipientPostDto">
+    <Position X="34" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAACAAAAAIEAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\Dtos\RecipientPostDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Dtos.UsersWithRolesDto">
+    <Position X="34" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAEAAQAgAAgAAAAAIAAAABAAAAAg=</HashCode>
+      <FileName>Models\Dtos\UsersWithRolesDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Dtos.Role">
+    <Position X="41" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\Dtos\UsersWithRolesDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.IdentityModels.ApplicationUser">
+    <Position X="36.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkgABIAAACKQAEAEAAAAAAAAIAAAAAAAhAAgAAg=</HashCode>
+      <FileName>Models\IdentityModels\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.CustomerModel">
+    <Position X="47.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAEAAAAAgA4AYAIiAAIAAIEAACCACAAAAgAEEA=</HashCode>
+      <FileName>Models\CustomerModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.CustomerGroup">
+    <Position X="45.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CustomerModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.CustomersDomainsModel">
+    <Position X="27.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAAIAAAAABCAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\CustomersDomainsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.CustomersListModel">
+    <Position X="32" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CustomersListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.InvoiceDraftLog">
+    <Position X="36.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Models\InvoiceDraftLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.InvoiceesListModel">
+    <Position X="36.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InvoiceesListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.InvoiceProduct">
+    <Position X="45.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Line">
+    <Position X="43" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAAAAgAgAAAAIAAAAAgACAIAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Customer">
+    <Position X="41" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Delivery">
+    <Position X="38.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAACAQAAAIAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.References">
+    <Position X="38.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Layout">
+    <Position X="38.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.Pdf">
+    <Position X="36.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.InvoiceModel">
+    <Position X="43" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAFAAAAAAAAAIAIAAAAQAIAAAAAEABAGQgAIAA=</HashCode>
+      <FileName>Models\InvoiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.NotificationMailsModel">
+    <Position X="27.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NotificationMailsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.ProductModel">
+    <Position X="43" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAgAAAEIQkAAAAAAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProductModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.ProductGroup">
+    <Position X="38.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProductModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.ProductsListModel">
+    <Position X="45.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProductsListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Models.SubscriptionsModel">
+    <Position X="32" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UBACAAAAAACgCQAAAAAgAAAAAAAAABAAAAAAgAAAACA=</HashCode>
+      <FileName>Models\SubscriptionsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Overloads.EconomicsHttpClientHandler">
+    <Position X="47.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Overloads\EconomicsHttpClientHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Pages.ErrorModel">
+    <Position X="34" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Error.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.AppStartupServices.SchedulerStartupService" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAwAAAAAAIAAAAAAAQEAAAABAAA=</HashCode>
+      <FileName>Services\AppStartupServices\SchedulerStartupService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_configuration" />
+      <Field Name="_hostAppLifetime" />
+      <Field Name="_serviceProvider" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.ConfigurationServices.AppsettingsConfigurationService" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAgAAAAAAAAACMCAAAAAAAAAAAAAAAIgAAqAAAA=</HashCode>
+      <FileName>Services\ConfigurationServices\AppsettingsConfigurationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.CustomersServices.CustomersService" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="20.25" Width="1.5" />
+    <AssociationLine Name="_context" Type="CRMS.Client.ReactRedux.DB.IItlCrmsDbContext" FixedFromPoint="true">
+      <Path>
+        <Point X="22.562" Y="20.25" />
+        <Point X="22.562" Y="18.988" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQAABQAAACAAwAAAACAAAAAAIAAEAAAQAAA=</HashCode>
+      <FileName>Services\CustomersServices\CustomersService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.DomainsServices.DomainsService" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAIAAQAAIAAAAAAAAAAAAABAAAAAGAAAA=</HashCode>
+      <FileName>Services\DomainsServices\DomainsService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_itlCrmsDbContext" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.EmailServices.EmailService" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAMgABQIAAACAAAAAQAIAAAAAAAAAAEAAAAIABA=</HashCode>
+      <FileName>Services\EmailServices\EmailService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_appsettingsConfigurationService" />
+      <Field Name="_configuration" />
+      <Field Name="_customersService" />
+      <Field Name="_emailServiceConfig" />
+      <Field Name="_httpContextAccessor" />
+      <Field Name="_notificationMailsService" />
+      <Field Name="_productsService" />
+      <Field Name="_subscriptionsService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.InvoicesServices.InvoicesServices" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAJAQAIABAAIAACCAAAAAQAAAAAAAASAIAAAAAAAEAA=</HashCode>
+      <FileName>Services\InvoicesServices\InvoicesServices.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_customersService" />
+      <Field Name="_itlCrmsDbContext" />
+      <Field Name="_productsService" />
+      <Field Name="_subscriptionsService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.NotificationMailsServices.NotificationMailsService" BaseTypeListCollapsed="true">
+    <Position X="25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARBAAgAAAAAAAAAIgAAAAAAAAAAAAAAAIAAAAAAAIAA=</HashCode>
+      <FileName>Services\NotificationMailsServices\NotificationMailsService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_itlCrmsDbContext" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.ProductsServices.ProductsService" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAIAAAQACAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Services\ProductsServices\ProductsService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.SchedulerServices.SchedulerService" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAACAAAABAAAAAAEAAAABAAA=</HashCode>
+      <FileName>Services\SchedulerServices\SchedulerService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_configuration" />
+      <Field Name="_serviceProvider" />
+      <Field Name="timer" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Services.SubscriptionsServices.SubscriptionsService" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAQAAAACAAAAAIACBAQAAAAAFAAAAAgAEEhAAAAAA=</HashCode>
+      <FileName>Services\SubscriptionsServices\SubscriptionsService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_configuration" />
+      <Field Name="_itlCrmsDbContext" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.ViewModels.IdentityViewModels.GetUserDataViewModel">
+    <Position X="36.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAIAEAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\IdentityViewModels\GetUserDataViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.ViewModels.IdentityViewModels.GetUserEmailViewModel">
+    <Position X="38.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\IdentityViewModels\GetUserEmailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Program">
+    <Position X="32" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRMS.Client.ReactRedux.Startup">
+    <Position X="30" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAABAAAAAAEAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.SignInManager&lt;TUser&gt;" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.UserManager&lt;TUser&gt;" Collapsed="true">
+    <Position X="3.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.RoleManager&lt;TRole&gt;" Collapsed="true">
+    <Position X="25.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Threading.Timer">
+    <Position X="5.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="CRMS.Client.ReactRedux.DB.IItlCrmsDbContext">
+    <Position X="21.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DB\IItlCrmsDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Frame.EmailService.IEmailServiceConfig">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAQAAAAAACACAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Frame\EmailService\IEmailServiceConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.AppStartupServices.ISchedulerStartupService">
+    <Position X="32" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Services\AppStartupServices\ISchedulerStartupService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.ConfigurationServices.IAppsettingsConfigurationService">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAgAAAAAAAAACMCAAAAAAAAAAAAAAAIgAAqAAAA=</HashCode>
+      <FileName>Services\ConfigurationServices\IAppsettingsConfigurationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.CustomersServices.ICustomersService">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQAAAQAAACAAwAAAACAAAAAAIAAEAAAQAAA=</HashCode>
+      <FileName>Services\CustomersServices\ICustomersService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.DomainsServices.IDomainsService">
+    <Position X="41" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAQAAIAAAAAAAAAAAAABAAAAAGAAAA=</HashCode>
+      <FileName>Services\DomainsServices\IDomainsService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.EmailServices.IEmailService">
+    <Position X="7.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAIABA=</HashCode>
+      <FileName>Services\EmailServices\IEmailService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.InvoicesServices.IInvoicesServices">
+    <Position X="4.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAQAAABAAAAACAAAAAAQAAAAAAAASAIAAAAAAAEAA=</HashCode>
+      <FileName>Services\InvoicesServices\IInvoicesServices.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.NotificationMailsServices.INotificationMailsService">
+    <Position X="16" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAgAAAAAAAAAIgAAAAAAAAAAAAAAAIAAAAAAAIAA=</HashCode>
+      <FileName>Services\NotificationMailsServices\INotificationMailsService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.ProductsServices.IProductsService">
+    <Position X="11.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAIAAAQACAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Services\ProductsServices\IProductsService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.SchedulerServices.ISchedulerService">
+    <Position X="32" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SchedulerServices\ISchedulerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CRMS.Client.ReactRedux.Services.SubscriptionsServices.ISubscriptionsService">
+    <Position X="4.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAAIACBAQAAAAAFAAAAAgAAEhAAAAAA=</HashCode>
+      <FileName>Services\SubscriptionsServices\ISubscriptionsService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.Extensions.Configuration.IConfiguration">
+    <Position X="19.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNetCore.Http.IHttpContextAccessor">
+    <Position X="16" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Extensions.Hosting.IHostApplicationLifetime" Collapsed="true">
+    <Position X="25.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction">
+    <Position X="32" Y="17.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="System.IServiceProvider" Collapsed="true">
+    <Position X="16.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="CRMS.Client.ReactRedux.Frame.BillingPeriodType">
+    <Position X="30" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAABAAAgA=</HashCode>
+      <FileName>Frame\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
