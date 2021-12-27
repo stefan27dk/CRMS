@@ -110,7 +110,7 @@ class Table extends Component {
             <>
                 <div>
 
-                    <div className="inline-lr">
+                    <div className="inline-lr mb-2">
                         <span className="h2 p-2 fit-content-w autoResizeFont-big no-wrap">{tableIcon}</span>
                         <sub><span className="inline h5">{tableData.length}</span></sub>
                         {excelButton(tableTitle, tableData.length, tableId !== undefined ? tableId : 'commonTable', excelFilter)}

@@ -296,7 +296,7 @@ class Subscriptions extends Component {
                 <SubscriptionsPeriodOverview overviewModalIsOpen={overViewModalIsOpen} toggleOverViewModal={this.toggleOverViewModal} data={this.loadDataBasedOnOption()} columns={this.columns} totalValues={this.totalValues} />
                 <EditSubscriptionModal subscription={pickedSubscription} toggleEditSubscriptionModal={() => this.toggleEditSubscriptionModal()} editSubscriptionModalIsOpen={editPickedSubscriptionModalIsOpen} setStateEditSubscriptionModalIsOpen={this.setStateeditPickedSubscriptionModalIsOpen} />
                 {/*Subscriptions - CONTENT ====================================================================================================================================*/}
-                <Table onRowClick={this.handelOnRowClick} html={this.injectTableHtml()} tableColumns={this.columns} tableData={this.loadDataBasedOnOption()} tableTitle="ABONNEMENTER" tableIcon={<span className="ml-2 inline"><FontAwesomeIcon className="fa-lg mr-2" icon={faBoxes} /> ABONNEMENTER </span>} excelFilter={'removeLastColumn'} />
+                <Table onRowClick={this.handelOnRowClick} html={this.injectTableHtml()} tableColumns={this.columns} tableData={customers.length !== 0 || products.length !== 0 || subscriptions.length !== 0 ? this.loadDataBasedOnOption() : [{}]} tableTitle="ABONNEMENTER" tableIcon={<span className="ml-2 inline"><FontAwesomeIcon className="fa-lg mr-2" icon={faBoxes} /> ABONNEMENTER </span>} excelFilter={'removeLastColumn'} />
                 {this.allSubscriptionsTotalValues(subscriptions, products)}
             </div>
         );
