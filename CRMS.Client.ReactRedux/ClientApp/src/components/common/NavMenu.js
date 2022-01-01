@@ -50,8 +50,8 @@ class NavMenu extends Component {
                             <Collapse className="d-sm-inline-flex d-md-inline-flex inline" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
 
-                                <NavItem className="fit-content-w-h m-t-b-auto ">
-                                    <a className="itl-nav-item-text" href="https://secure.e-conomic.com/sales/invoicing/invoices" target="_blank">{economicLogoSvg}</a>
+                                    <NavItem className="fit-content-w-h m-t-b-auto">
+                                    <a className="itl-nav-item-text mr-0" href="https://secure.e-conomic.com/sales/invoicing/invoices" target="_blank">{economicLogoSvg}</a>
                                     </NavItem>
 
 
@@ -75,12 +75,12 @@ class NavMenu extends Component {
 
                                 <NavItem className="fit-content-w-h m-t-b-auto">
                                     <NavLink tag={Link} className="itl-nav-item-text " to="/Invoices"><FontAwesomeIcon className="fa-lg" icon={faFileInvoice} /><br/>FAKTURAER</NavLink>
-                                    </NavItem>
+                                </NavItem>
 
                                         {adminRole !== undefined && adminRole !== "" ?
                                     <NavItem className="fit-content-w-h m-t-b-auto">
                                             <NavLink tag={Link} className="itl-nav-item-text " to="/Admin"><FontAwesomeIcon className="fa-lg" icon={faUserShield} /><br/>ADMIN</NavLink>
-                                        </NavItem>
+                                     </NavItem>
                                         : ''}
 
 
