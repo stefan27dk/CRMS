@@ -67,12 +67,12 @@ class App extends Component
                              <PrivateRoute exact path="/Subscriptions" component={Subscriptions} />
                               <PrivateRoute exact path="/Subscriptions" component={Subscriptions} />
                                <PrivateRoute exact path="/Products" component={Products} />
-                               <PrivateRoute exact path="/Invoices" component={Invoices} />
-                               <PrivateRoute exact path="/InvoiceDraft/:Id" component={InvoiceDraft} />
-                                <PrivateRoute exact path="/Product/:Id" component={Product} />
-                                 <PrivateRoute exact path="/Customer/:Id" component={Customer} />  
-                                  <Route path='/LogIn' render={(props) => (store.getState().userState.item.isLoggedIn == true ? (<Redirect to="/" />) : (<LogIn {...props} />))} />
-                                   <Route path='/LogOut' render={(props) => { store.dispatch(logOut(props.history))}} />
+                                <PrivateRoute exact path="/Invoices" component={Invoices} />
+                                 <PrivateRoute exact path="/InvoiceDraft/:Id" component={InvoiceDraft} />
+                                  <PrivateRoute exact path="/Product/:Id" component={Product} />
+                                   <PrivateRoute exact path="/Customer/:Id" component={Customer} />  
+                                    <Route path='/LogIn' render={(props) => (store.getState().userState.item.isLoggedIn == true ? (<Redirect to="/" />) : (<LogIn {...props} />))} />
+                                     <Route path='/LogOut' render={(props) => { store.dispatch(logOut(props.history))}} />
                         </Switch>
                    </Layout>
                 </Router>

@@ -22,7 +22,6 @@ class Customer extends Component {
     }
 
 
-
     // Render ===================================================================================================================
     render() {
         const { customers, products, subscriptions, customerContactPersons, updateCustomerContactPersons,

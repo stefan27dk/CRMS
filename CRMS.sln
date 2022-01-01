@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{941A5031
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriptions.Tests", "Subscriptions.Tests\Subscriptions.Tests.csproj", "{5CE16A0B-7996-4243-865D-99C33A3D830F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionsController.Tests", "SubscriptionsController.Tests\SubscriptionsController.Tests.csproj", "{65F909C6-DC41-4F24-A515-08ACDE82BCFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubscriptionsController.Tests", "SubscriptionsController.Tests\SubscriptionsController.Tests.csproj", "{65F909C6-DC41-4F24-A515-08ACDE82BCFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

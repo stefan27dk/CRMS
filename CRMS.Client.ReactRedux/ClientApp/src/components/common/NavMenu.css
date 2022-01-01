@@ -1,10 +1,10 @@
 ﻿a.navbar-brand {
     white-space: normal;
     text-align: center;
-    word-break: break-all;
+    /*word-break: break-all;*/
 }
 
-html {
+/*html {
     font-size: 14px;
 }
 
@@ -12,7 +12,7 @@ html {
     html {
         font-size: 16px;
     }
-}
+}*/
 
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
@@ -26,6 +26,8 @@ html {
     background: linear-gradient(0deg, rgba(0,116,245,0) 0%, rgba(9,210,235,1) 0%, rgba(0,208,208,1) 50%, rgba(10,172,190,1) 95%);
     height: 100px;
     padding: 2px;
+    overflow-x:auto;
+    overflow-y:hidden;
 }
 
 
@@ -34,13 +36,32 @@ html {
 }
 
 
+.fit-content-w-h {
+    height: fit-content;
+    width: fit-content;
+}
 
+.fit-content-h
+{
+    height: fit-content;
+}
+
+
+.nav-max-h-80px
+{
+   max-height: 100px;
+}
+
+
+.max-height-20px {
+    max-height: 20px;
+}
 
 
 .itl-nav-item-text {
     color: white !important;
     font-weight: bold;
-    font-size: min(max(10px, 2vw),20px);
+    font-size: min(max(5px, 2vw),12px);
     border-radius: 2px;
     margin-right: 50px;
     padding: 10px;
@@ -58,6 +79,7 @@ html {
 .economic-logo {
     width: 150px;
     height: auto;
+    text-align:center;
 }
 
 
