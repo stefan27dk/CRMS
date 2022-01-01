@@ -50,7 +50,6 @@ class FixedMiniMenu extends Component
         return (
             <div className="fixed-mini-menu no-select">
                 <span onClick={this.sendDraftInvoices}>SEND FAKTURA <FontAwesomeIcon className="fa-lg ml-3 mr-2" icon={faFileInvoice} /></span>
-                <span>OPRET KUNDE <FontAwesomeIcon className="fa-lg ml-3 " icon={faUserPlus} /></span>
             </div>);
     }
 

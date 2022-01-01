@@ -39,7 +39,7 @@ class NavMenu extends Component {
 
                     {/*TOP*/}
                     <div className="top">
-                        <img alt="" className="top-img no-select" src="/img/crms-top.png" />
+                        <img alt="" className="crms-logo no-select ml-3" src="/img/itl-crms-logo.png" />
                         <FixedMiniMenu />
                     </div>
 
