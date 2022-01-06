@@ -259,7 +259,7 @@ class Subscriptions extends Component {
                 <span className="inline h5 ml-3">Til:</span>
                 <input ref={this.periodEndtInput} name="periodEnd" onKeyDown={(e) => e.preventDefault()} className="form-control input-month" type="month" onChange={this.onChangeFromToInput} />
                 <button type="button" onClick={this.toggleOverViewModal} className="btn btn-primary max-heigh-35px m-t-b-auto mr-3 text-nowrap"><FontAwesomeIcon className="fa-lg mr-2 ml-1" icon={faAlignCenter} />Vis Oversigt</button>
-                <span id="periodValueLabel" className="ml-4 no-wrap font-weight-bold m-t-b-auto">{this.totalValues}</span>
+                <br/>
             </div>
         );
     }
@@ -300,6 +300,7 @@ class Subscriptions extends Component {
                 {/*Subscriptions - CONTENT ====================================================================================================================================*/}
                 <Table onRowClick={this.handelOnRowClick} html={this.injectTableHtml()} tableColumns={this.columns} tableData={subData} tableTitle="ABONNEMENTER" tableIcon={<span className="ml-2 inline"><FontAwesomeIcon className="fa-lg mr-2" icon={faBoxes} /> ABONNEMENTER </span>} excelFilter={'removeLastColumn'} />
                 {this.allSubscriptionsTotalValues(subscriptions, products)}
+                <p id="periodValueLabel" className="ml-4 no-wrap font-weight-bold m-t-b-auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Periode:{this.totalValues}</p>
             </div>
         );
     }

@@ -926,6 +926,7 @@ input[type="date"] {
 .inline-lr {
     display: flex;
     width: 100%;
+    min-width: 0;
 }
 
 
