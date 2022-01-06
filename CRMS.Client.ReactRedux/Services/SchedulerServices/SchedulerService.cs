@@ -34,7 +34,7 @@ namespace CRMS.Client.ReactRedux.Services.SchedulerServices
         }
 
 
-        //https://stackoverflow.com/questions/3243348/how-to-call-a-method-daily-at-specific-time-in-c
+        // https://stackoverflow.com/questions/3243348/how-to-call-a-method-daily-at-specific-time-in-c
         // https://stackoverflow.com/questions/59727799/how-to-run-net-core-ihosted-service-at-specific-time-of-the-day
         // https://stackoverflow.com/questions/18611226/c-how-to-start-a-thread-at-a-specific-time
         // https://www.c-sharpcorner.com/blogs/how-to-run-a-timer-on-specific-time-interval

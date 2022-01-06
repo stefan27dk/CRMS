@@ -48,7 +48,7 @@ class FixedMiniMenu extends Component
     render()
     {
         return (
-            <div className="fixed-mini-menu no-select">
+            <div className="fixed-mini-menu no-select m-t-b-auto">
                 <span onClick={this.sendDraftInvoices}>SEND FAKTURA <FontAwesomeIcon className="fa-lg ml-3 mr-2" icon={faFileInvoice} /></span>
             </div>);
     }

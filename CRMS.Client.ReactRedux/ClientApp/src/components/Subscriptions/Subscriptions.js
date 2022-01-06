@@ -288,15 +288,17 @@ class Subscriptions extends Component {
         // Loading
 
         if (customers.length === 0 || products.length === 0 || subscriptions.length === 0) return <p>Loader...</p>;
+
+        let subData = customers.length !== 0 || products.length !== 0 || subscriptions.length !== 0 ? this.loadDataBasedOnOption() : [{}];
         //if (!this.props.isLoaded) return <p>Loader...</p>;
 
         // Return HTML        
         return (
             <div>
-                <SubscriptionsPeriodOverview overviewModalIsOpen={overViewModalIsOpen} toggleOverViewModal={this.toggleOverViewModal} data={this.loadDataBasedOnOption()} columns={this.columns} totalValues={this.totalValues} />
+                <SubscriptionsPeriodOverview overviewModalIsOpen={overViewModalIsOpen} toggleOverViewModal={this.toggleOverViewModal} data={subData} columns={this.columns} totalValues={this.totalValues} />
                 <EditSubscriptionModal subscription={pickedSubscription} toggleEditSubscriptionModal={() => this.toggleEditSubscriptionModal()} editSubscriptionModalIsOpen={editPickedSubscriptionModalIsOpen} setStateEditSubscriptionModalIsOpen={this.setStateeditPickedSubscriptionModalIsOpen} />
                 {/*Subscriptions - CONTENT ====================================================================================================================================*/}
-                <Table onRowClick={this.handelOnRowClick} html={this.injectTableHtml()} tableColumns={this.columns} tableData={customers.length !== 0 || products.length !== 0 || subscriptions.length !== 0 ? this.loadDataBasedOnOption() : [{}]} tableTitle="ABONNEMENTER" tableIcon={<span className="ml-2 inline"><FontAwesomeIcon className="fa-lg mr-2" icon={faBoxes} /> ABONNEMENTER </span>} excelFilter={'removeLastColumn'} />
+                <Table onRowClick={this.handelOnRowClick} html={this.injectTableHtml()} tableColumns={this.columns} tableData={subData} tableTitle="ABONNEMENTER" tableIcon={<span className="ml-2 inline"><FontAwesomeIcon className="fa-lg mr-2" icon={faBoxes} /> ABONNEMENTER </span>} excelFilter={'removeLastColumn'} />
                 {this.allSubscriptionsTotalValues(subscriptions, products)}
             </div>
         );

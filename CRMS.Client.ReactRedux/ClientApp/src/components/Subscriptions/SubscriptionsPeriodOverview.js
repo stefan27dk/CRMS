@@ -46,11 +46,11 @@ class SubscriptionsPeriodOverview extends Component {
         let sortedData = _.orderBy(data, ['periodStartDate'], ['asc']);
 
         for (let i = 0; i < sortedData.length; i++) {
-            if (!moment(sortedData[i].periodStartDate).isSame(new Date(), 'year')) // Check if startDate is same year as now
-            {
-                sortedData.splice(i, 1);
-                continue;
-            }
+            //if (!moment(sortedData[i].periodStartDate).isSame(new Date(), 'year')) // Check if startDate is same year as now
+            //{
+            //    sortedData.splice(i, 1);
+            //    continue;
+            //}
             this.populateMonthsArrays(sortedData[i]);
         }
     }
@@ -129,58 +129,58 @@ class SubscriptionsPeriodOverview extends Component {
 
                         {/*January*/}
                         {this.jan.length !== 0 ?
-                            <Table className="my-5" tableColumns={columns} tableData={this.jan} tableTitle={"JANUAR"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableJan'} html={this.generateTableValueHtml(this.jan)} excelFilter={'removeLastColumn'} />
+                            <Table className="my-5" tableColumns={columns} tableData={this.jan} tableIcon={"JANUAR"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableJan'} html={this.generateTableValueHtml(this.jan)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
                         {/*February*/}
                         {this.feb.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.feb} tableTitle={"FEBRUAR"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableFeb'} html={this.generateTableValueHtml(this.feb)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.feb} tableIcon={"FEBRUAR"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableFeb'} html={this.generateTableValueHtml(this.feb)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
 
                         {/*March*/}
                         {this.mar.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.mar} tableTitle={"MARTS"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableMar'} html={this.generateTableValueHtml(this.mar)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.mar} tableIcon={"MARTS"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableMar'} html={this.generateTableValueHtml(this.mar)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
                         {/*April*/}
                         {this.apr.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.apr} tableTitle={"APRIL"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableApr'} html={this.generateTableValueHtml(this.apr)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.apr} tableIcon={"APRIL"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableApr'} html={this.generateTableValueHtml(this.apr)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
 
                         {/*Maj*/}
                         {this.maj.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.maj} tableTitle={"MAJ"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableMaj'} html={this.generateTableValueHtml(this.maj)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.maj} tableIcon={"MAJ"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableMaj'} html={this.generateTableValueHtml(this.maj)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
 
                         {/*JUNE*/}
                         {this.jun.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.jun} tableTitle={"JUNI"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableJun'} html={this.generateTableValueHtml(this.jun)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.jun} tableIcon={"JUNI"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableJun'} html={this.generateTableValueHtml(this.jun)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
                         {/*JULY*/}
                         {this.jul.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.jul} tableTitle={"JULI"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableJul'} html={this.generateTableValueHtml(this.jul)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.jul} tableIcon={"JULI"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableJul'} html={this.generateTableValueHtml(this.jul)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
                         {/*AUGUST*/}
                         {this.aug.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.aug} tableTitle={"AUGUST"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableAug'} html={this.generateTableValueHtml(this.aug)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.aug} tableIcon={"AUGUST"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableAug'} html={this.generateTableValueHtml(this.aug)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
                         {/*SEPTEMBER*/}
                         {this.sep.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.sep} tableTitle={"SEPTEMBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableSep'} html={this.generateTableValueHtml(this.sep)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.sep} tableIcon={"SEPTEMBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableSep'} html={this.generateTableValueHtml(this.sep)} excelFilter={'removeLastColumn'} />
 
                             : ''}
 
@@ -188,21 +188,21 @@ class SubscriptionsPeriodOverview extends Component {
 
                         {/*OCTOBER*/}
                         {this.oct.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.oct} tableTitle={"OKTOBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableOct'} html={this.generateTableValueHtml(this.oct)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.oct} tableIcon={"OKTOBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableOct'} html={this.generateTableValueHtml(this.oct)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
 
                         {/*NOVEMBER*/}
                         {this.nov.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.nov} tableTitle={"NOVEMBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableNov'} html={this.generateTableValueHtml(this.nov)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.nov} tableIcon={"NOVEMBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableNov'} html={this.generateTableValueHtml(this.nov)} excelFilter={'removeLastColumn'} />
                             : ''}
 
 
 
                         {/*DECEMBER*/}
                         {this.dec.length !== 0 ?
-                            <Table tableColumns={columns} tableData={this.dec} tableTitle={"DECEMBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableDec'} html={this.generateTableValueHtml(this.dec)} excelFilter={'removeLastColumn'} />
+                            <Table tableColumns={columns} tableData={this.dec} tableIcon={"DECEMBER"} tableContainerClass={'table-holder-h-fit'} tableId={'overViewTableDec'} html={this.generateTableValueHtml(this.dec)} excelFilter={'removeLastColumn'} />
                             : ''}
 
                     </ModalBody>
