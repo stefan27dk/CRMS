@@ -73,7 +73,7 @@ namespace CRMS.Client.ReactRedux.Services.ConfigurationServices
 
 
         // Notifications for ready subscription for invoicement ############################################################################################################
-        // ===== Get Notification days before ready for Invoicement|| GET || =====================================================================
+        // ===== Get Notification days before ready for Invoicement || GET || =====================================================================
         public async Task<int> GetNotificationDaysAsync()
         {
             var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
@@ -81,7 +81,6 @@ namespace CRMS.Client.ReactRedux.Services.ConfigurationServices
             dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject<Newtonsoft.Json.Linq.JObject>(json);
             return (int)jsonObj.InvoicementNotificationSettings.DaysBefore;
         }
-
 
 
 
@@ -97,7 +96,6 @@ namespace CRMS.Client.ReactRedux.Services.ConfigurationServices
             await System.IO.File.WriteAllTextAsync(path, output);
             return 1;
         }
-
 
 
 

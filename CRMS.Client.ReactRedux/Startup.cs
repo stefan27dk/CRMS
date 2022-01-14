@@ -59,7 +59,7 @@ namespace CRMS.Client.ReactRedux
 
 
         // ConfigureServices ----------------------------------------------------------------------------------------------------------------------- 
-        public void ConfigureServices(IServiceCollection services)// This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services) // This method gets called by the runtime. Use this method to add services to the container.
         {         
             //services.AddDntScheduler( options)
             // Config
@@ -150,7 +150,7 @@ namespace CRMS.Client.ReactRedux
             // SPA Static files
             services.AddSpaStaticFiles(configuration =>  // In production, the React files will be served from this directory
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "ClientApp/public";
             });
 
 

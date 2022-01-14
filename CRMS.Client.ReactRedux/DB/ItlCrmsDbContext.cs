@@ -10,14 +10,10 @@ namespace CRMS.Client.ReactRedux.DB
     // == || CLASS - ItlCrmsDbContext || ============================================================================================================================== 
     public class ItlCrmsDbContext : DbContext, IItlCrmsDbContext
     {
-
-
         // Constructor ------------------------------------------------------------------------------------------------------------------------------------------------
         public ItlCrmsDbContext(DbContextOptions<ItlCrmsDbContext> options) : base(options)
         {
         }
-
-
 
 
         // On Model Creating
@@ -66,7 +62,6 @@ namespace CRMS.Client.ReactRedux.DB
             });
             base.OnModelCreating(modelBuilder);
         }
-
 
 
         // DB Sets

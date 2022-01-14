@@ -87,9 +87,11 @@ namespace CRMS.Client.ReactRedux.Services.EmailServices
                        
                       <!--Header-->
                        <div style=""width: 100%; display:flexbox; text-align: center;"">
-                          <div style=""width:100%; border-bottom: 2px solid grey; margin-bottom: 5px;""><img style=""margin:5px auto 5px auto; max-width: 200px; width: auto; height:auto; object-fit: contain;"" src=""cid:itl-logo""/></div> 
+                          <div style=""width:100%; border-bottom: 2px solid grey; margin-bottom: 5px;"">
+                               <img style=""margin:5px auto 5px auto; max-width: 200px; width: auto; height:auto; object-fit: contain;"" src=""cid:itl-logo""/></div> 
                               </br>
-                            <div style=""width:100%; border-bottom: 2px solid grey; margin-bottom: 5px;""><b><span style=""font-size: 30px; margin:5px auto 5px auto; text-align: center; "">Abonementer klar til fakturering:</span></b> <span style=""font-size: 30px; margin:5px auto 5px auto; text-align: center;""><u>{countSubscriptions}</u></span></div>
+                            <div style=""width:100%; border-bottom: 2px solid grey; margin-bottom: 5px;""><b><span style=""font-size: 30px; margin:5px auto 5px auto; text-align: center; "">
+                             Abonementer klar til fakturering:</span></b> <span style=""font-size: 30px; margin:5px auto 5px auto; text-align: center;""><u>{countSubscriptions}</u></span></div>
                         </div>
                          
                       <!--Body-->
@@ -104,7 +106,7 @@ namespace CRMS.Client.ReactRedux.Services.EmailServices
                   </br>
                   </body>
                 </html>
-";
+                 ";
 
                 // HTML
                 AlternateView altView = AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html);
@@ -217,7 +219,8 @@ namespace CRMS.Client.ReactRedux.Services.EmailServices
                 //var baseUrl = _httpContextAccessor.HttpContext.Request.Host.Value; // Get Base Url of the server
                 var baseUrl = _configuration["BaseUrl"];
                 var invoicementLink = $"https://{baseUrl}/api/Invoices/SendAllInvoicesByToken?token={token}"; // Url - Link to send all invoices
-                var sendAllInvoicesButtonHtml = $"<a style='margin:30px; padding:10px; color:white; border: 1px solid rgb(142, 194, 255); border-radius: 5px; background-color: rgb(0, 119, 255); text-decoration: none; font-weight: bold;' href='{invoicementLink}' target=''_blank'>Send Alle</a> ";
+                var sendAllInvoicesButtonHtml = $"<a style='margin:30px; padding:10px; color:white; border: 1px solid rgb(142, 194, 255); border-radius: 5px;" +
+                    $" background-color: rgb(0, 119, 255); text-decoration: none; font-weight: bold;' href='{invoicementLink}' target=''_blank'>Send Alle</a> ";
                 for (int i = 0; i < countMails; i++)
                 {
                     await SendMail(mails[i].Email, "ITL-CRMS", msg, countSubscriptions, sendAllInvoicesButtonHtml);

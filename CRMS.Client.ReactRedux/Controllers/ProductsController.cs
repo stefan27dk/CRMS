@@ -42,10 +42,7 @@ namespace CRMS.Client.ReactRedux.Controllers
                return StatusCode(500, "Server Fejl!");
         }
 
-
-
-
-
+                
 
 
 

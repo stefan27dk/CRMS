@@ -36,7 +36,9 @@ namespace CRMS.Client.ReactRedux.Controllers
         private readonly UserManager<ApplicationUser> _userManager; 
 
         // Constructor ---------------------------------------------------------------------------------------------------------------------------------------
-        public InvoicesController(IInvoicesServices invoicesServices, ISubscriptionsService subscriptionsService, IAppsettingsConfigurationService appsettingsConfigurationService, IEmailService emailService, UserManager<ApplicationUser> userManager)
+        public InvoicesController(IInvoicesServices invoicesServices, ISubscriptionsService subscriptionsService,
+            IAppsettingsConfigurationService appsettingsConfigurationService,
+            IEmailService emailService, UserManager<ApplicationUser> userManager)
         {
             _invoicesServices = invoicesServices;
             _subscriptionsService = subscriptionsService;

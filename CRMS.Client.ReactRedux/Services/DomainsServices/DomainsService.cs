@@ -36,7 +36,6 @@ namespace CRMS.Client.ReactRedux.Services.DomainsServices
 
 
 
-
         // Get - Domain by Name------------------------------------------------------------------------------------------------------------------------------------------
         public async Task<CustomersDomainsModel> GetDomainByName(string domainName)
         {

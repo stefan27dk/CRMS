@@ -1,151 +1,162 @@
+using CRMS.Client.ReactRedux.DB;
+using CRMS.Client.ReactRedux.Filter;
+using CRMS.Client.ReactRedux.Frame.EmailService;
 using CRMS.Client.ReactRedux.Models;
+using CRMS.Client.ReactRedux.Models.IdentityModels;
+using CRMS.Client.ReactRedux.Services.AppStartupServices;
+using CRMS.Client.ReactRedux.Services.ConfigurationServices;
+using CRMS.Client.ReactRedux.Services.CustomersServices;
+using CRMS.Client.ReactRedux.Services.DomainsServices;
+using CRMS.Client.ReactRedux.Services.EmailServices;
+using CRMS.Client.ReactRedux.Services.InvoicesServices;
+using CRMS.Client.ReactRedux.Services.NotificationMailsServices;
+using CRMS.Client.ReactRedux.Services.ProductsServices;
+using CRMS.Client.ReactRedux.Services.SchedulerServices;
 using CRMS.Client.ReactRedux.Services.SubscriptionsServices;
-using Moq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using CRMS.Client.ReactRedux.DB;
-using Microsoft.EntityFrameworkCore;
-using Castle.Core.Configuration;
-using CRMS.Client.ReactRedux;
-using Microsoft.Extensions.Configuration;
 
 namespace SubscriptionsController.Tests
 {
     public class SubscriptionsControllerTests
     {
-
-        //// Init
-        //private readonly Mock<ISubscriptionsService> _mockSubService;
-        //private readonly CRMS.Client.ReactRedux.Controllers.SubscriptionsController _subController;
+        public static IConfiguration Configuration { get; set; }
 
 
+         // Constructor
+        public SubscriptionsControllerTests()
+        {
+            var builder = new ConfigurationBuilder()
+                       .SetBasePath(Directory.GetCurrentDirectory()) // requires Microsoft.Extensions.Configuration.Json
+                       .AddJsonFile("appsettings.json") // requires Microsoft.Extensions.Configuration.Json
+                       .AddEnvironmentVariables(); // requires Microsoft.Extensions.Configuration.EnvironmentVariables
+            Configuration = builder.Build();
+        }
+
+
+     
+
+        // Test 1
+        [Fact]
+        public async Task GetAllSubscriptions()
+        {
+            var serviceProvider = Configure();
+            var subService = serviceProvider.GetService<ISubscriptionsService>(); // Get Service
+            var subController = new CRMS.Client.ReactRedux.Controllers.SubscriptionsController(subService);
+
+            // Act
+            var result = await subController.GetAllSubscriptions();
+
+            // Assert
+            Assert.NotNull(result); // Is it Null
+            Assert.IsType<List<SubscriptionsModel>>(result); // Is it Type SubscriptionModel
+            //Assert.Equal(System.DateTime.Now, result[0].PeriodEndDate);
+        }
+
+
+
+
+              
+        // Add All Services and return Buiilder
+        private ServiceProvider Configure()
+        {
+            var services = new ServiceCollection(); // New Service Collection
+
+            //services.AddDntScheduler( options)
+            // Config
+            services.AddSingleton<IConfiguration>(Configuration);
+            //services.AddHttpContextAccessor();
+
+            // Subscription Status
+            services.AddScoped<ISubscriptionsService, SubscriptionsService>();
+
+            // Customers Services
+            services.AddScoped<ICustomersService, CustomersService>();
+
+            // Product Services
+            services.AddScoped<IProductsService, ProductsService>();
+
+            // Domains Services
+            services.AddScoped<IDomainsService, DomainsService>();
+
+            // Appsettings Config Services
+            services.AddScoped<IAppsettingsConfigurationService, AppsettingsConfigurationService>();
+
+
+            // Email Service   
+            services.AddSingleton(Configuration.GetSection("EmailConfigSettings").Get<EmailServiceConfig>());
+            services.AddScoped<IEmailServiceConfig, EmailServiceConfig>();
+            services.AddScoped<INotificationMailsService, NotificationMailsService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddSingleton<ISchedulerService, SchedulerService>();
+
+
+            // Db Context - Registration  
+            services.AddDbContextPool<ItlCrmsDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); // Connectionstring
+
+            services.AddScoped<IItlCrmsDbContext>(provider => provider.GetService<ItlCrmsDbContext>()); // Register the IItlCrmsDbContext Db context
+
+            // Identity - Db Context - Registration  
+            services.AddDbContextPool<IdentityContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); // Connectionstring
+
+            // Invoice Service
+            services.AddScoped<IInvoicesServices, InvoicesServices>();
+
+            // Unit of Work - Registration 
+            services.AddScoped<UnitOfWorkFilter>();
+            services.AddControllers(config => { config.Filters.AddService<UnitOfWorkFilter>(); });  // UnitOfWork for all Controllers
+
+
+
+            // Log In
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                // Password settings
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+            }).AddEntityFrameworkStores<IdentityContext>().AddDefaultTokenProviders(); // AddDefaultTokenProviders is used for the Update Log In Password etc.
+
+
+
+
+            // Log In
+            // Make all Controllers protected by default so only Authorized Users can accsess them, for Anonymouse Users use [AlloAnonymouse] over the controllers.
+            services.AddMvc(options => {
+                var policy = new AuthorizationPolicyBuilder()
+                  .RequireAuthenticatedUser()
+                  .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+
+            }).AddXmlSerializerFormatters();
+
+               
 
          
 
-        // Constructor
-        public SubscriptionsControllerTests()
-        { 
+            // Startup Services - run on app startup
+            services.AddHostedService<SchedulerStartupService>();
+
+            var serviceProvider = services.BuildServiceProvider(); // Build Service
+
+            return serviceProvider;
         }
-
-
-        //private ISubscriptionsService _subscriptionsService;
-
-        [Fact]
-        public async Task Test1()
-        {
-            var mockSubService = new Mock<ISubscriptionsService>();
-            //mockSubService.Setup(m => m.GetAllSubscriptionsAsync()).ReturnsAsync(new List<SubscriptionsModel>());
-
-            // Here we are "injecting" the dependencies into the AuthClient
-            var _subController = new CRMS.Client.ReactRedux.Controllers.SubscriptionsController(mockSubService.Object);
-            // This service call will now use the supplied (mocked) services above
-            var result = await _subController.GetAllSubscriptions();
-
-            mockSubService.Verify(b => b.GetAllSubscriptionsAsync(), Times.Once);
-
-            Assert.NotNull(result); // Is it Null
-             Assert.IsType<List<SubscriptionsModel>>(result); // Is it Type SubscriptionModel
-             //Assert.Equal(System.DateTime.Now, result[0].PeriodEndDate);
-        }
-
-
-
-
-
-
-        //private ISubscriptionsService _subscriptionsService;
-
-        //[Fact]
-        //public async Task Test1()
-        //{
-        //    var services = new ServiceCollection(); // Service Collection
-
-        //    // Db Context - Registration  
-        //    services.AddDbContextPool<ItlCrmsDbContext>(options =>
-        //    options.UseSqlServer(Startup.Configuration.GetConnectionString("DefaultConnection"))); // Connectionstring
-
-        //    services.AddScoped<IItlCrmsDbContext>(provider => provider.GetService<ItlCrmsDbContext>()); // Register the IItlCrmsDbContext Db context
-
-        //    //Subscriptions Service
-        //    services.AddTransient<ISubscriptionsService, SubscriptionsService>(); // Add Service
-
-
-        //    var serviceProvider = services.BuildServiceProvider(); // Build Service Provider
-        //    _subscriptionsService = serviceProvider.GetService<ISubscriptionsService>(); // Get the service
-
-
-        //    var result = await _subscriptionsService.GetAllSubscriptionsAsync();
-
-        //    Assert.NotNull(result); // Is it Null
-        //    Assert.IsType<List<SubscriptionsModel>>(result); // Is it Type SubscriptionModel
-        //    //Assert.Equal(System.DateTime.Now, result[0].PeriodEndDate);
-        //}
-
-
-
-
-
-        //private ISubscriptionsService subscriptionsService;
-
-        //[Fact]
-        //public async Task Test1()
-        //{
-        //    var services = new ServiceCollection(); // Service Collection
-        //    services.AddTransient<ISubscriptionsService, SubscriptionsService>(); // Add Service
-        //    services.AddTransient<I, SubscriptionsService>(); // Add Service
-        //    var serviceProvider = services.BuildServiceProvider(); // Build Service Provider
-        //    subscriptionsService = serviceProvider.GetService<ISubscriptionsService>(); // Get the service
-
-
-        //   var result =  subscriptionsService.GetAllSubscriptionsAsync();
-
-        //    Assert.NotNull(result); // Is it Null
-        //    Assert.IsType<List<SubscriptionsModel>>(result); // Is it Type SubscriptionModel
-        //    //Assert.Equal(System.DateTime.Now, result[0].PeriodEndDate);
-        //}
-
-
-
-        //[Fact]
-        //public async Task Test1()
-        //{
-        //    _mockSubService.Setup(i => i.GetSubscriptionsReadyForInvoicementAsync()).ReturnsAsync(new List<SubscriptionsModel>() { new SubscriptionsModel(), new SubscriptionsModel() }); // Specify Incoming Params and return values
-
-        //    // Act
-        //   var result = await _subController.GetAllReadyForInvoiceSubscriptions();
-        //   var listResult = (List<SubscriptionsModel>)result;
-
-
-        //    // Assert
-        //    Assert.NotNull(result); // Is it Null
-        //    Assert.IsType<List<SubscriptionsModel>>(result); // Is it Type SubscriptionModel
-        //    Assert.Equal(System.DateTime.Now, listResult[0].PeriodEndDate);
-
-        //}   
-
-
-        //[Fact]
-        //public async Task Test1()
-        //{
-        //    //arrange
-        //    _mockSubService.Setup(i => i.GetSubscriptionsReadyForInvoicementAsync()).ReturnsAsync(new List<SubscriptionsModel>() { });
-
-        //    //act
-        //    var actionResult = _subController.GetAllSubscriptions().Result;
-        //    var result = actionResult as OkObjectResult;
-        //    var actual = result.Value as IEnumerable<SubscriptionsModel>;
-
-        //    //assert
-        //    Assert.IsType<OkObjectResult>(result);
-        //    //Assert.Equal(GetSampleEmployee().Count(), actual.Count);
-
-        //}
-
+       
     }
-
 }

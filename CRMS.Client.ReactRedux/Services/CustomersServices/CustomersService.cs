@@ -142,6 +142,7 @@ namespace CRMS.Client.ReactRedux.Services.CustomersServices
             {
                 using (var response = await httpClient.PutAsync(EconomicsHttpClientHandler.eConomicsApiAddress + $"/Customers/{customerId}", content))
                 {
+                   //var body =  response.Content.ReadAsStringAsync();
                     if (response.IsSuccessStatusCode)
                     {
                         return 1;
@@ -213,7 +214,8 @@ namespace CRMS.Client.ReactRedux.Services.CustomersServices
         {
             using (var httpClient = new EconomicsHttpClientHandler())
             {
-                using (var response = await httpClient.PutAsync(EconomicsHttpClientHandler.eConomicsApiAddress + $"/Customers/{customerId}/contacts/{contactId}", new StringContent(jsonContact.ToString(), Encoding.UTF8, "application/json")))
+                using (var response = await httpClient.PutAsync(EconomicsHttpClientHandler.eConomicsApiAddress + $"/Customers/{customerId}/contacts/{contactId}", 
+                    new StringContent(jsonContact.ToString(), Encoding.UTF8, "application/json")))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -238,7 +240,8 @@ namespace CRMS.Client.ReactRedux.Services.CustomersServices
         {
             using (var httpClient = new EconomicsHttpClientHandler())
             {
-                using (var response = await httpClient.PostAsync(EconomicsHttpClientHandler.eConomicsApiAddress + $"/Customers/{customerId}/contacts", new StringContent(jsonContact.ToString(), Encoding.UTF8, "application/json")))
+                using (var response = await httpClient.PostAsync(EconomicsHttpClientHandler.eConomicsApiAddress + $"/Customers/{customerId}/contacts", 
+                    new StringContent(jsonContact.ToString(), Encoding.UTF8, "application/json")))
                 {
                     if (response.IsSuccessStatusCode)
                     {
