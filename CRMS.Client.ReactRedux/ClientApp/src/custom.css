@@ -1089,25 +1089,30 @@ input[type="date"] {
 }
 
 
-
+ 
 
 .container-holder {
-    margin: 10px auto 10px auto;
+     
     background-color: rgb(184, 184, 184, 0.4);
-    width: 90vw;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0px auto 0 auto;
     height: auto;
-    display: flex;
     border-radius: 2px;
+    overflow: auto;
+    display:inline-flex;
     /*border: 2px solid grey;*/
 }
 
 
 
+ 
 
 .item-container {
     background-color: rgb(184, 184, 184, 0.7);
     width: fit-content;
     margin-right: 20px;
+    margin-left: 20px;
     padding: 10px;
     border-radius: 2px;
     border: 1px solid grey;

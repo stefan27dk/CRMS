@@ -37,9 +37,9 @@ namespace SubscriptionsController.Tests
         public SubscriptionsControllerTests()
         {
             var builder = new ConfigurationBuilder()
-                       .SetBasePath(Directory.GetCurrentDirectory()) // requires Microsoft.Extensions.Configuration.Json
-                       .AddJsonFile("appsettings.json") // requires Microsoft.Extensions.Configuration.Json
-                       .AddEnvironmentVariables(); // requires Microsoft.Extensions.Configuration.EnvironmentVariables
+                       .SetBasePath(Directory.GetCurrentDirectory()) // Requires Microsoft.Extensions.Configuration.Json
+                       .AddJsonFile("appsettings.json") // Requires Microsoft.Extensions.Configuration.Json
+                       .AddEnvironmentVariables(); // Requires Microsoft.Extensions.Configuration.EnvironmentVariables
             Configuration = builder.Build();
         }
 
@@ -50,7 +50,7 @@ namespace SubscriptionsController.Tests
         [Fact]
         public async Task GetAllSubscriptions()
         {
-            var serviceProvider = Configure();
+            var serviceProvider = Configure(); // Configure Services
             var subService = serviceProvider.GetService<ISubscriptionsService>(); // Get Service
             var subController = new CRMS.Client.ReactRedux.Controllers.SubscriptionsController(subService);
 
@@ -147,7 +147,6 @@ namespace SubscriptionsController.Tests
             }).AddXmlSerializerFormatters();
 
                
-
          
 
             // Startup Services - run on app startup

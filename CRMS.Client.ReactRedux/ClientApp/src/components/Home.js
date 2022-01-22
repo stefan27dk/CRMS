@@ -45,7 +45,7 @@ class Home extends Component {
         }
 
         return (
-            <div className="container-holder inline">
+            <div className="container-holder">
 
                 {/*TOP PRODUCTS*/}
                 <div className="item-container">
